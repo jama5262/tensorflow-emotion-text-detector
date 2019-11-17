@@ -22,7 +22,7 @@ export const Home = () => {
         <Col style={{ textAlign: "center", marginTop: "30px" }} md={{ span: 10, offset: 1 }}>
           <Button variant="primary">
             <Spinner
-              style={{margin: "0 10px"}}
+              style={{ margin: "0 10px" }}
               animation="grow"
               size="sm"
               role="status"
@@ -34,19 +34,19 @@ export const Home = () => {
       </Row>
       <Row>
         <Col style={{ textAlign: "center", marginTop: "50px" }} md={{ span: 10, offset: 1 }}>
-          <MainEmotion/>
-          <hr/>
+          <MainEmotion />
+          <hr />
         </Col>
       </Row>
       <Row className="justify-content-sm-center">
         <Col style={{ textAlign: "center", marginTop: "50px" }} xs={{ span: 3 }}>
-          <SubEmotion/>
+          <SubEmotion />
         </Col>
         <Col style={{ textAlign: "center", marginTop: "50px" }} xs={{ span: 3 }}>
-          <SubEmotion/>
+          <SubEmotion />
         </Col>
       </Row>
-      <div style={{marginBottom: "100px"}}></div>
+      <div style={{ marginBottom: "100px" }}></div>
     </Container>
   )
 }
