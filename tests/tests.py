@@ -17,9 +17,17 @@ class Test(unittest.TestCase):
         return self.client.post(path=path)
 
     def test_predict(self):
-        response = self.post(self.predictEndpoint, "this is a test")
+        response = self.post(self.predictEndpoint, "query=this is a test")
         self.assertEqual(response.status_code, 200)
 
     def test_page_not_found(self):
         response = self.post(self.pageNotFoundEndpoint, "")
         self.assertEqual(response.status_code, 404)
+
+    def test_is_query_valid(self):
+        response = self.post(self.predictEndpoint, "invalidQuery=")
+        self.assertEqual(response.status_code, 404)
+
+    def test_is_query_empty(self):
+        response = self.post(self.predictEndpoint, "query=")
+        self.assertEqual(response.status_code, 422)

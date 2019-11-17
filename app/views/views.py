@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from app.repository.repository import predict
 
 views = Blueprint("views", __name__)
 
@@ -10,4 +11,5 @@ def renderReactPage():
 
 @views.route("predict", methods=["POST"])
 def getEmotion():
-    return request.args.get("query"), 200
+    response = predict(request)
+    return jsonify(response), response["status"]
