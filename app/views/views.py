@@ -4,7 +4,7 @@ views = Blueprint("views", __name__)
 
 
 @views.route("")
-def renderPage():
+def renderReactPage():
     return "React Page here", 200
 
 
