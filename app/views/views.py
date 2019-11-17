@@ -4,7 +4,7 @@ from app.repository.repository import predict
 views = Blueprint("views", __name__)
 
 
-@views.route("")
+@views.route("", methods=["GET"])
 def renderReactPage():
     return "React Page here", 200
 
