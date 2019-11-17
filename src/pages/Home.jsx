@@ -10,7 +10,7 @@ export const Home = () => {
     <Container>
       <Row className="justify-content-sm-center">
         <Col style={{ marginTop: "90px" }} md={{ span: 7 }}>
-          <h1 style={{ textAlign: "center" }} className="display-5">Tensorflow Test Text Detector</h1>
+          <h1 style={{ textAlign: "center" }} className="display-5">Tensorflow Emotion Text Detector</h1>
         </Col>
       </Row>
       <Row>
@@ -22,13 +22,13 @@ export const Home = () => {
         <Col style={{ textAlign: "center", marginTop: "30px" }} md={{ span: 10, offset: 1 }}>
           <Button variant="primary">
             <Spinner
-              style={{ margin: "0 10px" }}
-              animation="grow"
+              style={{ marginRight: "10px" }}
+              animation="border"
               size="sm"
               role="status"
               aria-hidden="true"
             />
-            Primary
+            What are you feeling
           </Button>
         </Col>
       </Row>
@@ -39,12 +39,7 @@ export const Home = () => {
         </Col>
       </Row>
       <Row className="justify-content-sm-center">
-        <Col style={{ textAlign: "center", marginTop: "50px" }} xs={{ span: 3 }}>
-          <SubEmotion />
-        </Col>
-        <Col style={{ textAlign: "center", marginTop: "50px" }} xs={{ span: 3 }}>
-          <SubEmotion />
-        </Col>
+        <SubEmotion />
       </Row>
       <div style={{ marginBottom: "100px" }}></div>
     </Container>
