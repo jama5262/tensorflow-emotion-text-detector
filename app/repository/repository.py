@@ -1,7 +1,11 @@
 from app.utils.validate import isQueryValid, isQueryEmpty
 from app.utils.return_messages import success, error
 import requests
+from os import environ
 import json
+
+emotions = ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
+emojis = ['😢', '😂', '😍', '😡', '😱', '😲']
 
 
 def predict(request):
@@ -12,25 +16,42 @@ def predict(request):
 
     query = request.args.get("query")
 
+    response = getEmotion(query)
+
+    results = sortByProbability(response.json()["results"][0])
+
+    response = getGif(results[0]["emotion"])
+
+    results[0].update({"gif": response.json()["data"]
+                       ["images"]["original"]["url"]})
+
+    return success(200, results)
+
+
+def getEmotion(query):
     tfModelRequestBody = {
         "signature_name": "classification",
         "examples": [{
             "text": query
         }]
     }
-
-    response = requests.post(
+    return requests.post(
         "http://localhost:8501/v1/models/emo-model:classify", json=tfModelRequestBody)
 
-    emotions = ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
 
-    predictedEmotions = response.json()["results"][0]
+def getGif(tag):
+    return requests.get("https://api.giphy.com/v1/gifs/random", params={
+        "api_key": environ.get("GIPHY_API_KEY"),
+        "tag": tag
+    })
 
-    results = {}
 
-    for index, prediction in enumerate(response.json()["results"][0]):
-        results.update({emotions[index]: prediction[1]})
-    
-    results = sorted(results.items(), key=lambda x: x[1], reverse=True)[:3]
-
-    return success(200, results)
+def sortByProbability(predictedEmotions):
+    results = []
+    for index, prediction in enumerate(predictedEmotions):
+        results.append({
+            "emotion": emotions[index],
+            "probability": prediction[1],
+            "emoji": emojis[index]
+        })
+    return sorted(results, key=lambda x: x['probability'], reverse=True)[:3]
