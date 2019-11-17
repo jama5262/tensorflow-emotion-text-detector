@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 export const SubEmotion = () => {
   return (
