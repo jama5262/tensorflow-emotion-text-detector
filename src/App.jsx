@@ -1,11 +1,10 @@
 import React from 'react';
-import { Button } from "react-bootstrap";
+import { Home } from "./pages/Home";
 
 export const App = () => {
   return (
     <div>
-      <h1>Tensorflow React UI</h1>
-      <Button variant="dark">Primary</Button>
+      <Home/>
     </div>
   );
 }
