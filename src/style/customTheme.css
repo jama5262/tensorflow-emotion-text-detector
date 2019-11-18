@@ -1,3 +1,29 @@
 * {
   font-family: 'Press Start 2P', cursive;
 }
+
+.animateText {
+  animation-duration: 1.5s;
+  animation-name: change;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+}
+
+@keyframes change {
+  0% {
+    color: orange;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: blue;
+  }
+  100% {
+    color: yellow;
+  }
+}

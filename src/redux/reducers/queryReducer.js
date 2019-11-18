@@ -1,7 +1,7 @@
 import * as types from "../../utils/constants/actionContants"
 
 const initialState = {
-  query: ""
+  query: "Happy to see you here"
 }
 
 export const query = (state = initialState, action) => {
