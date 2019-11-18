@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector, useDispatch } from "react-redux";
+
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 
 import { TextArea } from "../components/TextArea";
@@ -6,6 +8,9 @@ import { MainEmotion } from "../components/MainEmotion";
 import { SubEmotion } from "../components/SubEmotion";
 
 export const Home = () => {
+
+  const loading = useSelector(state => state.loading.loading)
+
   return (
     <Container>
       <Row className="justify-content-sm-center">
@@ -20,14 +25,19 @@ export const Home = () => {
       </Row>
       <Row>
         <Col style={{ textAlign: "center", marginTop: "30px" }} md={{ span: 10, offset: 1 }}>
-          <Button variant="primary">
-            <Spinner
-              style={{ marginRight: "10px" }}
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
+          <Button disabled={loading} variant="primary">
+            {
+              loading ?
+                (
+                  <Spinner
+                    style={{ marginRight: "10px" }}
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                ) : null
+            }
             What are you feeling
           </Button>
         </Col>
