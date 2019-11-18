@@ -9,6 +9,7 @@ coverage==4.5.4
 coveralls==1.8.2
 docopt==0.6.2
 Flask==1.1.1
+Flask-Cors==3.0.8
 gunicorn==20.0.0
 idna==2.8
 importlib-metadata==0.23

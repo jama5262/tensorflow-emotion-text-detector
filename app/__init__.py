@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from os import environ
 from app.views.views import views
 
@@ -26,6 +27,8 @@ def serverError(error):
 
 def createApp():
     app = Flask(__name__)
+    cors = CORS(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
     print("Flask running in " + app.config["ENV"] + " mode")
     app.register_blueprint(views, url_prefix="/")
     app.register_error_handler(404, pageNotFound)
