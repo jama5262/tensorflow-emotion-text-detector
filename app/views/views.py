@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 from app.repository.repository import predict
 from flask_cors import cross_origin
 
@@ -7,7 +7,7 @@ views = Blueprint("views", __name__)
 
 @views.route("", methods=["GET"])
 def renderReactPage():
-    return "React Page here", 200
+    return render_template('index.html'), 200
 
 
 @views.route("predict", methods=["POST"])
