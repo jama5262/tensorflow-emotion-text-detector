@@ -1,0 +1,13 @@
+version: "3"
+
+services: 
+  tf-model:
+    image: jama5262/tensorflow-emotion-text-detector
+    ports: 
+     - 8501:8501
+  flask-server:
+    image: jama5262/flask-tensorflow-emotion-text-detector
+    ports:
+      - 5000:5000
+    depends_on: 
+      - tf-model
