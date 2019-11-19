@@ -36,7 +36,7 @@ def getEmotion(query):
         }]
     }
     return requests.post(
-        "http://localhost:8501/v1/models/emo-model:classify", json=tfModelRequestBody)
+        "http://" + environ.get("TF_MODEL_URL") + ":8501/v1/models/emo-model:classify", json=tfModelRequestBody)
 
 
 def getGif(tag):

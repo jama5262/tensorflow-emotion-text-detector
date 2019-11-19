@@ -9,6 +9,7 @@ COPY . .
 ENV FLASK_APP run.py
 ENV FLASK_ENV development
 ENV GIPHY_API_KEY dc6zaTOxFJmzC
+ENV TF_MODEL_URL tf-model
 
 RUN pip install -r requirements.txt
 
