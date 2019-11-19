@@ -26,7 +26,7 @@ def serverError(error):
 
 
 def createApp():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder="templates/static")
     cors = CORS(app)
     app.config['CORS_HEADERS'] = 'Content-Type'
     print("Flask running in " + app.config["ENV"] + " mode")
