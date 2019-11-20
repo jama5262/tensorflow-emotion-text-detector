@@ -21,13 +21,13 @@ Demo|
 
 - [Docker](https://www.docker.com/), [Docker-Compose](https://docs.docker.com/compose/)
 - [Tensorflow](https://www.tensorflow.org/), [Tensorflow Estimator](https://www.tensorflow.org/guide/estimator), [Tensorflow-Serving](https://www.tensorflow.org/tfx/guide/serving), Google-Colab
+- [Giphy API](https://developers.giphy.com/docs/api/)
 - [Flask](http://flask.palletsprojects.com/en/1.1.x/)
 - [React](https://reactjs.org/), [Redux](https://redux.js.org/), [React-Redux](https://react-redux.js.org/), [React Bootstrap](https://react-bootstrap.github.io/)
-- [React Bootstrap](https://react-bootstrap.github.io/)
 
 This repo contains four branches which are the following
 
-1. [`master`](https://github.com/jama5262/tensorflow-emotion-text-detector) branch - Contains the `docker-compose.yml` file. This is used to start the two containers from the tensorflow-serving and flask server docker image and to also allow communication between them. See the Installation and Usage section on how to get started
+1. [`master`](https://github.com/jama5262/tensorflow-emotion-text-detector) branch - Contains the `docker-compose.yml` file. This is used to start the two containers from the tensorflow-serving and flask server docker image and to also allow communication between them. **See the [Installation](#Installation) and [Usage](#Usage) section on how to get started**
 
 ```
 version: "3"
